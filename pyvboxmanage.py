@@ -216,3 +216,10 @@ class VBoxManage(object):
         :type guest_port: int
         """
         self.run_cmd(["modifyvm", vm_name.encode("utf-8"), "--natpf1", "%s,tcp,,%d,,%d" % (rule_name, host_port, guest_port)])
+
+    def set_num_cpus(self, vm_name, num_cpus):
+        """
+        :type vm_name: unicode
+        :type num_cpus: int
+        """
+        self.run_cmd(["modifyvm", vm_name.encode("utf-8"), "--cpus", str(num_cpus)])
